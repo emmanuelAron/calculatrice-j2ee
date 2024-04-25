@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Calculatrice</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function egal() {
+    // Récupérez les valeurs des opérandes et du signe
+    let operand1 = document.getElementById("operand1").value;
+    let operand2 = document.getElementById("operand2").value;
+    let operator = document.getElementById("operator").value;
+
+    // Envoyez les données au service REST côté backend
+    fetch('http://localhost:8080/calculatrice_j2ee_back/rest/calcul/result?operand1=' + operand1 + '&operand2=' + operand2 + '&operator=' + operator)
+        .then(response => response.text())
+        .then(result => {
+            // Traitez le résultat reçu du service REST
+            document.getElementById("ecran").value = result;
+        })
+        .catch(error => console.error('Erreur lors de la requête Fetch:', error));
+}
+</script>
+
+
+</head>
+<body>
+	<div class="calculatrice">
+		<div>
+			<input type="text" id="ecran" name="ecran" maxlength="8" size="30" />
+		</div>
+		<div>
+			<input type="button" value="1" /><input type="button" value="2" /><input type="button" value="3" /><input type="button" value="C" />
+		</div>
+		<div>
+			<input type="button" value="4" /><input type="button" value="5" /><input type="button" value="6" /><input type="button" value="+" />
+		</div>
+		<div>
+			<input type="button" value="7" /><input type="button" value="8" /><input type="button" value="9" /><input type="button" value="-" />
+		</div>
+		<div>
+			<input type="button" value="X" /><input type="button" value="0" /><input type="button" value="÷" /><input type="button" value="=" onclick="egal()" />
+		</div>
+	</div>
+</body>
+</html>
