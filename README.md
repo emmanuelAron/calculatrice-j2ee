@@ -9,4 +9,4 @@ Ci-dessous s'affiche le XML généré via les parametres:
 
 ![Image_web_service_Rest](REST_WEB_SERVICE.png)
 
-La partie frontend est une interface html/css/javascript, et lorsque on clique sur le bouton = alors on déclenche ce web service et cette URL comme expliqué ci-dessus dans la partie backend.
+La partie frontend est une interface html/css/javascript représentant la calculatrice sous forme de page web, et lorsque on clique sur le bouton = alors on déclenche ce web service et cette URL comme expliqué ci-dessus dans la partie backend.
